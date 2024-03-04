@@ -87,9 +87,13 @@ Run the evaluation.
 SDL_VIDEODRIVER="dummy" ./leaderboard/scripts/run_evaluation.sh
 ```
 
+For the evaluation of TCP models, please refer to the related code in [TCP](https://github.com/OpenDriveLab/TCP) since its agent config is different from InterFuser. 
+
+
+
 ### Trained Weights
 
-We also provide the trained student model weights by PlanKD for direct evaluation,  which could be downloaded at [here](https://drive.google.com/file/d/1ls4I5XEEDEWRmuAEfvpQXCSwszlg-UxJ/view?usp=sharing). For the evaluation of TCP models, please refer to the related code in [TCP](https://github.com/OpenDriveLab/TCP) since its agent config is different from InterFuser. 
+We also provide the trained student model weights by PlanKD for direct evaluation,  which could be downloaded at [here](https://drive.google.com/file/d/1ls4I5XEEDEWRmuAEfvpQXCSwszlg-UxJ/view?usp=sharing). 
 
 
 
