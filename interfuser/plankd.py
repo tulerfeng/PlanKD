@@ -149,8 +149,6 @@ class VIB(nn.Module):
         
         if self.base_model == 'interfuser':
             self.init_dim = 1296
-        elif self.base_model == 'tcp':
-            self.init_dim = 3136
         
         self.encoder = nn.Sequential(
             nn.Linear(self.init_dim, 512),
