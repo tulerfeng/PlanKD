@@ -101,10 +101,11 @@ This implementation is based on code from several repositories.
 If you find our repo or paper useful, please cite us as
 
 > ```
-> @inproceedings{fengtowards,
->   title={Towards Open Temporal Graph Neural Networks},
->   author={Feng, Kaituo and Li, Changsheng and Zhang, Xiaolu and ZHOU, JUN},
->   booktitle={International Conference on Learning Representations}
+> @article{feng2024road,
+>   title={On the Road to Portability: Compressing End-to-End Motion Planner for Autonomous Driving}, 
+>   author={Kaituo Feng and Changsheng Li and Dongchun Ren and Ye Yuan and Guoren Wang},
+>   journal={arXiv preprint arXiv:2403.01238},
+>   year={2024}
 > }
 > ```
 
