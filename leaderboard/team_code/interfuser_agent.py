@@ -488,10 +488,6 @@ class InterfuserAgent(autonomous_agent.AutonomousAgent):
                     ) = self.net(input_data)
                     
                     
-                    
-                elif self.config.model[:3]=='tcp':
-                    output = self.net(input_data)
-                    pred_waypoints = output['pred_wp']
         if self.config.model[:10]=='interfuser':          
             traffic_meta = traffic_meta.detach().cpu().numpy()[0]
             bev_feature = bev_feature.detach().cpu().numpy()[0]
@@ -614,42 +610,6 @@ class InterfuserAgent(autonomous_agent.AutonomousAgent):
             if SAVE_PATH is not None and False:
                 self.save(tick_data)
                 
-            
-        elif self.config.model[:3]=='tcp':
-            tick_data['target_point'] = [torch.FloatTensor([tick_data['target_point'][0]]),
-                                        torch.FloatTensor([tick_data['target_point'][1]])]
-            target_point = torch.stack(tick_data['target_point'], dim=1).to('cuda', dtype=torch.float32)
-            gt_velocity = torch.FloatTensor([tick_data['speed']]).to('cuda', dtype=torch.float32)
-            steer_traj, throttle_traj, brake_traj, metadata_traj = self.net.control_pid(pred_waypoints, gt_velocity, target_point)
-            # steer_traj, throttle_traj, brake_traj, metadata_traj = self.net.control_pid(pred['pred_wp'], gt_velocity, input_data["target_point"])
-            
-            if brake_traj < 0.05: brake_traj = 0.0
-            if throttle_traj > brake_traj: brake_traj = 0.0
-            
-            self.pid_metadata = metadata_traj
-            self.pid_metadata['agent'] = 'traj'
-            
-            control = carla.VehicleControl()
-            control.steer = np.clip(1.0 * steer_traj, -1, 1)
-            control.throttle = np.clip(1.0 *throttle_traj, 0, 0.75)
-            control.brake = np.clip(1.0 *brake_traj, 0, 1)
-            
-            
-            # if self.status == 0:
-            #     self.alpha = 0.3
-            #     self.pid_metadata['agent'] = 'traj'
-            #     control.steer = np.clip(self.alpha*steer_ctrl + (1-self.alpha)*steer_traj, -1, 1)
-            #     control.throttle = np.clip(self.alpha*throttle_ctrl + (1-self.alpha)*throttle_traj, 0, 0.75)
-            #     control.brake = np.clip(self.alpha*brake_ctrl + (1-self.alpha)*brake_traj, 0, 1)
-            # else:
-            #     self.alpha = 0.3
-            #     self.pid_metadata['agent'] = 'ctrl'
-            #     control.steer = np.clip(self.alpha*steer_traj + (1-self.alpha)*steer_ctrl, -1, 1)
-            #     control.throttle = np.clip(self.alpha*throttle_traj + (1-self.alpha)*throttle_ctrl, 0, 0.75)
-            #     control.brake = np.clip(self.alpha*brake_traj + (1-self.alpha)*brake_ctrl, 0, 1)
-
-
-
             
         return control
 
