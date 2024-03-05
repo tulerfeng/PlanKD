@@ -38,30 +38,4 @@ class GlobalConfig:
             
         self.model = my_param['ckpt_name']
         self.model_path = my_param['ckpt_path']
-        
-        if self.model[:3]=='tcp':
 
-            self.turn_KP = 0.75
-            self.turn_KI = 0.75
-            self.turn_KD = 0.3
-            self.turn_n = 40 # buffer size
-
-            self.speed_KP = 5.0
-            self.speed_KI = 0.5
-            self.speed_KD = 1.0
-            self.speed_n = 40 # buffer size
-
-            self.max_throttle = 0.75 # upper limit on throttle signal value in dataset
-            self.brake_speed = 0.4 # desired speed below which brake is triggered
-            self.brake_ratio = 1.1 # ratio of speed to desired speed at which brake is triggered
-            self.clip_delta = 0.25 # maximum change in speed input to logitudinal controller
-            
-            
-            self.aim_dist = 4.0 # distance to search around for aim point
-            self.angle_thresh = 0.3 # outlier control detection angle
-            self.dist_thresh = 10 # target point y-distance for outlier filtering
-
-
-            self.speed_weight = 0.05
-            self.value_weight = 0.001
-            self.features_weight = 0.05
