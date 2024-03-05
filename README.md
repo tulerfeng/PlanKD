@@ -4,21 +4,13 @@
 
 ## Introduction
 
-This repository contains the code for paper: [On the Road to Portability: Compressing End-to-End Motion Planner for Autonomous Driving](https://openreview.net/pdf?id=N9Pk5iSCzAn). This paper is accepted by CVPR 2024. 
+This repository contains the code for paper: [On the Road to Portability: Compressing End-to-End Motion Planner for Autonomous Driving](https://arxiv.org/abs/2403.01238). This paper is accepted by CVPR 2024. 
 
 **TL;DR**:  We propose PlanKD, the first knowledge distillation framework tailored for compressing end-to-end motion planning models in autonomous driving.
 
 
 
 <img src="./assets/framework.png" style="zoom:60%;" />
-
-## Demo Video
-
-
-
-
-
-
 
 
 
