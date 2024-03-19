@@ -85,7 +85,7 @@ For the evaluation of TCP models, please refer to the related code in [TCP](http
 
 ## Trained Weights
 
-We also provide the trained student model weights by PlanKD for direct evaluation,  which could be downloaded at [here](https://drive.google.com/file/d/1ls4I5XEEDEWRmuAEfvpQXCSwszlg-UxJ/view?usp=sharing). 
+We also provide the trained student model weights by PlanKD for direct evaluation,  which could be downloaded at [here](https://drive.google.com/file/d/1BWo97XZ_1Rm4PsakaJluIZLOTlj5b-Gw/view?usp=sharing). 
 
 
 
